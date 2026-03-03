@@ -18,3 +18,9 @@ then = "nohup fuzzel &"
 on = "destroyworkspace"
 when = "special:x"
 then = "killall fuzzel"
+
+# remove weird blurry overlay on popups in winapps apps
+[[handler]]
+on = "windowtitlev2"
+when = "(.*),ActiproWindowChromeShadow"
+then = "hyprctl dispatch closewindow address:0x${REGEX_GROUP_1}"
