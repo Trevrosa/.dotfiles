@@ -16,6 +16,7 @@
         "mpris"
     ],
     "modules-right": [
+        "idle_inhibitor",
         "pulseaudio",
         "bluetooth",
         "backlight",
@@ -51,6 +52,14 @@
             "balanced": " ",
             "power-saver": " "
         }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        },
+        "tooltip": false
     },
     "network": {
         "interval": 15,

@@ -50,6 +50,7 @@ tooltip label {
 
 #mpris,
 
+#idle_inhibitor,
 #pulseaudio,
 #bluetooth,
 #backlight,
@@ -66,7 +67,7 @@ tooltip label {
 }
 
 /* left-most modules */
-#network, #pulseaudio, #custom-lock {
+#network, #idle_inhibitor, #custom-lock {
   border-radius: 1rem 0px 0px 1rem;
   margin-left: 1rem;
 }
