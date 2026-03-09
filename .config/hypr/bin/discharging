@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+status=$(cat /sys/class/power_supply/BAT0/status)
+
+if [[ $status == "Discharging" ]]; then
+    exit 1
+else
+    exit 0
+fi
