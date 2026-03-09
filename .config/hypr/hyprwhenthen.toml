@@ -5,7 +5,13 @@ timeout = "1s"
 [[handler]]
 on = "windowtitlev2"
 when = "(.*),Extension: .+ Bitwarden"
-then = "hyprctl dispatch togglefloating address:0x${REGEX_GROUP_1}; hyprctl dispatch resizewindowpixel -362 -405, address:0x${REGEX_GROUP_1}; hyprctl dispatch centerwindow address:0x${REGEX_GROUP_1}"
+then = "hyprctl dispatch togglefloating address:0x${REGEX_GROUP_1} && hyprctl dispatch resizewindowpixel -362 -405, address:0x${REGEX_GROUP_1} && hyprctl dispatch centerwindow address:0x${REGEX_GROUP_1}"
+
+# float google sign in popups
+[[handler]]
+on = "windowtitlev2"
+when = "(.*),Sign in - Google Accounts .+"
+then = "hyprctl dispatch togglefloating address:0x${REGEX_GROUP_1} && hyprctl dispatch resizewindowpixel -375 -346, address:0x${REGEX_GROUP_1} && hyprctl dispatch centerwindow address:0x${REGEX_GROUP_1}"
 
 # run fuzzel on when special:x is created
 [[handler]]
