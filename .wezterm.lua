@@ -55,6 +55,26 @@ config.keys = {
     mods = "CTRL | SHIFT",
     action = wezterm.action.ScrollToTop
   },
+  {
+    key = "DownArrow",
+    mods = "CTRL",
+    action = wezterm.action.ScrollByLine(1)
+  },
+  {
+    key = "UpArrow",
+    mods = "CTRL",
+    action = wezterm.action.ScrollByLine(-1)
+  },
+  {
+    key = "PageDown",
+    mods = "CTRL",
+    action = wezterm.action.ScrollByPage(1)
+  },
+  {
+    key = "PageUp",
+    mods = "CTRL",
+    action = wezterm.action.ScrollByPage(-1)
+  },
   -- remove font resizing CTRL+ keybinds
   {
     key = "-",
