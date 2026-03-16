@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# 2 hours in seconds
+delay=$((60*60*2))
+
+start=$(date +%s)
+rtcwake -s $delay -m mem
+end=$(date +%s)
+
+if [ $((end-start)) -ge $delay ]; then
+    systemd-run --on-active=5 systemctl poweroff
+fi
