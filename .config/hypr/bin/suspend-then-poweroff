@@ -1,7 +1,11 @@
 #!/bin/sh
 
-# 2 hours in seconds
-delay=$((60*60*2))
+if [[ $# -eq 1 ]]; then
+    delay=$1
+else
+    # 2 hours in seconds
+    delay=$((60*60*2))
+fi
 
 start=$(date +%s)
 rtcwake -s $delay -m mem
