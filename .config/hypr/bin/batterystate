@@ -1,7 +1,11 @@
 #!/bin/bash
 
-# Get the current battery percentage
-battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+if [[ $# -eq 1 ]]; then
+    battery_percentage=$1    
+else
+    # Get the current battery percentage
+    battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+fi
 
 # Get the battery status (Charging or Discharging)
 battery_status=$(cat /sys/class/power_supply/BAT0/status)
@@ -12,7 +16,8 @@ battery_icons=("" "" "" "" "")
 charging_icon=""
 
 # Calculate the index for the icon array
-icon_index=$((battery_percentage / 20))
+bat20=$((battery_percentage / 20))
+icon_index=$(( bat20-1 < 0 ? 0 : bat20-1 ))
 
 # Get the corresponding icon
 battery_icon=${battery_icons[icon_index]}
