@@ -94,14 +94,6 @@ tooltip label {
   color: @pink;
 }
 
-#temperature.warning {
-  color: @yellow;
-}
-
-#temperature.critical {
-  color: @red;
-}
-
 #power-profiles-daemon.performance {
   color: @blue;
 }
@@ -133,14 +125,6 @@ tooltip label {
 
 #battery {
   color: @green;
-}
-
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging) {
-  color: @red;
 }
 
 #clock {

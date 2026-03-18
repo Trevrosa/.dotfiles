@@ -86,7 +86,7 @@
         ],
         "dynamic-len": 42,
         "interval": 3,
-        "tooltip": false
+        "tooltip-format": "{title} - {artist}"
     },
     "pulseaudio": {
         "format": "{volume}% {icon}",
