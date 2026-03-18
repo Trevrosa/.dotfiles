@@ -131,7 +131,18 @@
         ]
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "weeks-pos": "right",
+            // catppuccin colors
+            "format": {
+                "months": "<span color='#f4dbd6'><b>{}</b></span>",
+                "days": "<span color='#f5bde6'><b>{}</b></span>",
+                "weeks": "<span color='#8bd5ca'><b>W{}</b></span>",
+                "weekdays": "<span color='#eed49f'><b>{}</b></span>",
+                "today": "<span color='#ed8796'><b><u>{}</u></b></span>"
+            }
+        },
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%d/%m/%Y}",
         "format": "{:%b %d %I:%M %p}"
     },
