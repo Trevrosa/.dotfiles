@@ -190,7 +190,7 @@
         "optional_repositories": []
     },
     "network_config": {
-        "type": "nm"
+        "type": "nm_iwd"
     },
     "ntp": true,
     "packages": [
