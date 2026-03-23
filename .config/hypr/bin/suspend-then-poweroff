@@ -8,7 +8,7 @@ else
 fi
 
 start=$(date +%s)
-rtcwake -s $delay -m mem
+sudo rtcwake -s $delay -m mem
 end=$(date +%s)
 
 if [ $((end-start)) -ge $delay ]; then
