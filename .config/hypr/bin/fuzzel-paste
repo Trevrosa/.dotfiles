@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+
+item=$(cliphist list | fuzzel --dmenu --with-nth 2)
+exit_code=$?
+
+
+if [ "$exit_code" -eq 19 ]; then
+    if [ -n "$item" ]; then
+        item_id=$(echo "$item" | cut -f1)
+        echo "$item_id" | cliphist delete
+    fi
+else
+    [ -z "$item" ] || echo "$item" | cliphist decode | wl-copy && wtype -M ctrl -k v -m ctrl
+fi
