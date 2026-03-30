@@ -68,7 +68,8 @@
         "tooltip-format": "{ifname} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
         "format-disconnected": "Disconnected  ",
-        "format-alt": "{bandwidthDownBytes}  | {bandwidthUpBytes}  "
+        "format-alt": "{bandwidthDownBytes}  | {bandwidthUpBytes}  ",
+        "on-click-right": "iwmenu -l fuzzel -s 2"
     },
     "mpris": {
         "format": "{dynamic}({status})",
@@ -106,7 +107,8 @@
         "format-connected": " connected ({device_battery_percentage}%)",
         "tooltip-format": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}: {device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}% ({device_address})"
+        "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}% ({device_address})",
+        "on-click": "bzmenu -l fuzzel -s 2"
     },
     "backlight": {
         "format": "{percent}% ",
