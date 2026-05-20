@@ -94,16 +94,8 @@ tooltip label {
   color: @pink;
 }
 
-#power-profiles-daemon.performance {
-  color: @blue;
-}
-
-#power-profiles-daemon.balanced {
+#power-profiles-daemon {
   color: @rosewater;
-}
-
-#power-profiles-daemon.power-saver {
-  color: @green;
 }
 
 #mpris {
