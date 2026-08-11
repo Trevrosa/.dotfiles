@@ -7,15 +7,15 @@ else
     delay=$((60*60))
 fi
 
-echo "suspending" > suspend-then-poweroff.log
+echo "suspending" >> suspend-then-poweroff.log
 
 start=$(date +%s)
 sudo rtcwake -s $delay -m mem
 end=$(date +%s)
 
 if [ $((end-start)) -ge $delay ]; then
-    echo "resumed after delay, shutting down" > suspend-then-poweroff.log
+    echo "resumed after delay, shutting down" >> suspend-then-poweroff.log
     systemd-run --on-active=5 systemctl poweroff
 else
-    echo "resumed early ($((end-start))s)" > suspend-then-poweroff.log
+    echo "resumed early ($((end-start))s)" >> suspend-then-poweroff.log
 fi
