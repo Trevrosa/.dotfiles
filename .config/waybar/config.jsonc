@@ -134,6 +134,7 @@
     },
     "clock": {
         "calendar": {
+            "iso8601": true,
             "weeks-pos": "right",
             // catppuccin colors
             "format": {
