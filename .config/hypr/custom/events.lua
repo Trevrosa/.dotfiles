@@ -1,21 +1,7 @@
+local utils = require("./custom/utils")
+local dispatch_many = utils.dispatch_many
 local matches = string.find
 local window = hl.dsp.window
-
---- Create a notification with text `log`
----@param val any
----@param duration number?
-local function debug(val, duration)
-    duration = duration or 5000
-    hl.notification.create({ text = tostring(val), timeout = duration })
-end
-
---- Dispatch multiple dispatchers
----@param dispatchers HL.Dispatcher[]
-local function dispatch_many(dispatchers)
-    for _, dsp in ipairs(dispatchers) do
-        hl.dispatch(dsp)
-    end
-end
 
 -- float bitwarden popups
 ---@param w HL.Window?
@@ -31,6 +17,21 @@ hl.on("window.title", function(w)
             }),
             window.center(w)
         })
+    end
+end)
+
+-- run fuzzel when special:x is created
+---@param ws HL.Workspace?
+hl.on("workspace.created", function(ws)
+    if ws ~= nil and ws.name == "special:x" then
+        hl.exec_cmd("fuzzel", { workspace = "special:x" })
+    end
+end)
+
+-- kill fuzzel when special:x is removed
+hl.on("workspace.removed", function(ws)
+    if hl.get_workspace("special:x") == nil then
+        hl.exec_cmd("killall fuzzel")
     end
 end)
 
@@ -50,23 +51,6 @@ end)
 --         })
 --     end
 -- end)
-
--- run fuzzel when special:x is created
----@param ws HL.Workspace?
-hl.on("workspace.created", function(ws)
-    if ws ~= nil and ws.name == "special:x" then
-        hl.exec_cmd("nohup fuzzel &")
-    end
-end)
-
--- FIXME
--- kill fuzzel when special:x is removed
----@param ws HL.Workspace?
-hl.on("workspace.removed", function(ws)
-    if ws ~= nil and ws.name == "special:x" then
-        hl.exec_cmd("killall fuzzel")
-    end
-end)
 
 -- -- remove weird blurry overlay on popups in winapps apps
 -- ---@param w HL.Window?

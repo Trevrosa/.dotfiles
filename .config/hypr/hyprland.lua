@@ -90,13 +90,7 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -----------------------
 
 local macchiato = require("./custom/macchiato")
-
---- Wraps a `color` value in "rgba()"
---- @param color string
---- @return string
-local function rgba(color)
-    return "rgba(" .. color .. ")"
-end
+local rgba = require("./custom/utils").rgba
 
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
@@ -276,13 +270,13 @@ require("./custom/keybinds")
 local mainMod = consts.mainMod
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(consts.apps.terminal))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(apps.terminal))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M",
     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(consts.apps.fileManager))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(apps.fileManager))
 hl.bind(mainMod .. " + Z", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(consts.apps.menu))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(apps.menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
 
