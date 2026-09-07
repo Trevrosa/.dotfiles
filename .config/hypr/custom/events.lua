@@ -1,5 +1,5 @@
 local utils = require("./custom/utils")
-local dispatch_many = utils.dispatch_many
+local dispatch_many, debug = utils.dispatch_many, utils.debug
 local matches = string.find
 local window = hl.dsp.window
 
@@ -20,18 +20,22 @@ hl.on("window.title", function(w)
     end
 end)
 
+local x_existed = false
+
 -- run fuzzel when special:x is created
 ---@param ws HL.Workspace?
 hl.on("workspace.created", function(ws)
     if ws ~= nil and ws.name == "special:x" then
         hl.exec_cmd("fuzzel", { workspace = "special:x" })
+        x_existed = true
     end
 end)
 
 -- kill fuzzel when special:x is removed
 hl.on("workspace.removed", function(ws)
-    if hl.get_workspace("special:x") == nil then
+    if x_existed then
         hl.exec_cmd("killall fuzzel")
+        x_existed = false
     end
 end)
 
