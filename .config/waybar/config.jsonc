@@ -30,7 +30,8 @@
         "format": " {icon} ",
         "format-icons": {
             "default": ""
-        }
+        },
+        "tooltip": false
     },
     "cpu": {
         "format": "{usage}% ",
