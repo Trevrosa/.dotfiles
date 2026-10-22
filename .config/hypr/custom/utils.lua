@@ -18,8 +18,8 @@ end
 --- Create a notification with multiple values
 function M.debug(...)
     local args = {}
-    for i, v in ipairs({ ... }) do
-        args[i] = M.stringify(v)
+    for i = 1, select("#", ...) do
+        args[i] = M.stringify(select(i, ...))
     end
     hl.notification.create({ text = table.concat(args, " "), timeout = 5000 })
 end

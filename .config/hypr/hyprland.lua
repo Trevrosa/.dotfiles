@@ -45,7 +45,7 @@ hl.on("hyprland.start", function()
 
     hl.exec_cmd(apps.browser, { workspace = "1 silent" })
     hl.exec_cmd(apps.terminal, { workspace = "2 silent" })
-    hl.exec_cmd("spotify-launcher --skip-update") -- launches in special:s via windowrule
+    hl.exec_cmd("spotifast", { workspace = "special:s silent" }) --hl.exec_cmd("spotify-launcher --skip-update") -- launches in special:s via windowrule
 
     hl.exec_cmd("waybar & hyprpaper & hypridle & hyprpm reload -n")
     -- hl.exec_cmd("hyprwhenthen run --config ~/.config/hypr/hyprwhenthen.toml")
