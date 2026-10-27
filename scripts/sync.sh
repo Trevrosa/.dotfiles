@@ -6,3 +6,4 @@ rsync --delete -avL $@ --filter="merge $dir/config.filter" ~/.config/ ~/.dotfile
 rsync --delete -avL $@ --filter="merge $dir/user.filter" ~/ ~/.dotfiles
 rsync --delete -avL $@ /etc/udev/rules.d/ ~/.dotfiles/udev
 rsync --delete -avL $@ /etc/polkit-1/rules.d/ ~/.dotfiles/polkit
+rsync --delete -avL --mkpath $@ /etc/NetworkManager/dispatcher.d/user/ ~/.dotfiles/NetworkManager/dispatcher.d
