@@ -95,7 +95,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='nano'
+export EDITOR='vim'
 export TERMINAL='wezterm'
 
 # Preferred editor for local and remote sessions
