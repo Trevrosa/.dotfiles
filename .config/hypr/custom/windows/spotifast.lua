@@ -1,7 +1,7 @@
 hl.window_rule({
-    name = "move spotify to workspace",
+    name = "move spotifast to workspace",
     match = {
         initial_class = "spotifast",
     },
-    workspace = "special:s silent"
+    workspace = "special:s silent",
 })
