@@ -1,6 +1,6 @@
 return {
     apps = {
-        terminal    = "wezterm",
+        terminal    = "wezterm start --always-new-process",
         fileManager = "dolphin",
         menu        = "fuzzel",
         browser     = "firefox"
