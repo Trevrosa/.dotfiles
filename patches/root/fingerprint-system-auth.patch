@@ -1,0 +1,23 @@
+--- /etc/pam.d/system-auth	2026-11-17 11:38:06.497811908 +0800
++++ system-auth-new	2026-11-17 11:38:58.491927741 +0800
+@@ -3,9 +3,19 @@
+ auth       required                    pam_faillock.so      preauth
+ # Optionally use requisite above if you do not want to prompt for the password
+ # on locked accounts.
+--auth      [success=2 default=ignore]  pam_systemd_home.so
++
++-auth      [success=5 default=ignore]  pam_systemd_home.so
++# Only offer fingerprint for sudo and Polkit prompts; skip display-manager logins.
++auth       [success=2 default=ignore]  pam_succeed_if.so    service notin sudo:polkit-1
++# Disallow fingerprint in sudo without tty.
++auth       [success=1 default=ignore]  pam_succeed_if.so    service in sudo tty in :unknown
++auth       [success=2 default=ignore]  pam_fprintd.so
+ auth       [success=1 default=bad]     pam_unix.so          try_first_pass nullok
+ auth       [default=die]               pam_faillock.so      authfail
++#-auth      [success=2 default=ignore]  pam_systemd_home.so
++#auth       [success=1 default=bad]     pam_unix.so          try_first_pass nullok
++#auth       [default=die]               pam_faillock.so      authfail
++
+ auth       optional                    pam_permit.so
+ auth       required                    pam_env.so
+ auth       required                    pam_faillock.so      authsucc
