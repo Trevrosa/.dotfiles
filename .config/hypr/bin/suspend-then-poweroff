@@ -3,8 +3,8 @@
 if [[ $# -eq 1 ]]; then
     delay=$1
 else
-    # 1 hour in seconds
-    delay=$((60*60))
+    # 3 hours in seconds
+    delay=$((3*60*60))
 fi
 
 now=$(date "+%D %T:")
