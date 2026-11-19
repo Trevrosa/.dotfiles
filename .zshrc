@@ -120,6 +120,7 @@ alias sqlite3="sqlite3 -cmd 'PRAGMA foreign_keys = ON;'"
 
 path+=(~/.local/bin/)
 path+=(~/.config/hypr/bin/)
+path+=(~/go/bin/)
 
 bindkey '^H' backward-kill-word
 
@@ -129,8 +130,6 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
-
-
 
 # bun completions
 [ -s "/home/trev/.bun/_bun" ] && source "/home/trev/.bun/_bun"
