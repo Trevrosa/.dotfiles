@@ -25,7 +25,7 @@ local x_existed = false
 -- run fuzzel when special:x is created
 ---@param ws HL.Workspace?
 hl.on("workspace.created", function(ws)
-    if ws ~= nil and ws.name == "special:x" then
+    if ws ~= nil and ws.name == "special:x" and ws.windows == 0 then
         hl.exec_cmd("fuzzel", { workspace = "special:x" })
         x_existed = true
     end

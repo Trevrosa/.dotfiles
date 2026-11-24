@@ -5,7 +5,7 @@ local apps = consts.apps
 local exec = hl.dsp.exec_cmd
 
 -- poweroff: bind like close hyprland (m)
-hl.bind(mainMod .. " + SHIFT + M", exec("poweroff"))
+hl.bind(mainMod .. " + SHIFT + M", exec("hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'"))
 
 -- (p)in a window
 hl.bind(mainMod .. " + P", hl.dsp.window.pin())
