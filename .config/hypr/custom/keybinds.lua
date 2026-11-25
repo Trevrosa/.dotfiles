@@ -14,8 +14,8 @@ hl.bind(mainMod .. " + P", hl.dsp.window.pin())
 hl.bind("Print", exec("grimblast copysave area"))
 
 -- (l)ock (+SHIFT) suspend
-hl.bind(mainMod .. " + L", exec("loginctl lock-session"))
-hl.bind(mainMod .. " + SHIFT + L", exec("loginctl lock-session & systemctl start suspend-then-poweroff"))
+hl.bind(mainMod .. " + L", exec("hyprlock"))
+hl.bind(mainMod .. " + SHIFT + L", exec("hyprlock & systemctl start suspend-then-poweroff"))
 
 -- ctrl (v)
 hl.bind(mainMod .. " + V", exec("fuzzel-paste"))
