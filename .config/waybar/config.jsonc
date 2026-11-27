@@ -105,7 +105,7 @@
     "bluetooth": {
         "interval": 30,
         "format-on": " {status}",
-        "format-connected": " connected ({device_battery_percentage}%)",
+        "format-connected": " ({device_battery_percentage}%)",
         "tooltip-format": "{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}: ({device_address})",
         "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}% ({device_address})",
@@ -145,6 +145,11 @@
                 "weekdays": "<span color='#eed49f'><b>{}</b></span>",
                 "today": "<span color='#ed8796'><b><u>{}</u></b></span>"
             }
+        },
+        "actions": {
+            "on-click": "shift_up",
+            "on-click-right": "shift_down",
+            "on-click-middle": "shift_reset"
         },
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%d/%m/%Y}",
